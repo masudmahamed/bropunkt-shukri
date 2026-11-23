@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 210 11% 15%;
+        --card: 0 0% 100%;
+        --card-foreground: 210 11% 15%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 210 11% 15%;
+        --primary: 174 62% 47%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 36 100% 50%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 210 20% 96%;
+        --muted-foreground: 210 11% 45%;
+        --accent: 174 62% 47%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 210 20% 90%;
+        --input: 210 20% 90%;
+        --ring: 174 62% 47%;
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        @apply bg-background text-foreground antialiased;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+        @apply font-semibold;
+    }
+}
+
+/* Gradient backgrounds */
+.gradient-hero {
+    background: linear-gradient(135deg, #1a9d8f 0%, #2eb8b8 25%, #4fc3dc 50%, #7dd3fc 75%, #a78bfa 100%);
+}
+
+.gradient-cta {
+    background: linear-gradient(135deg, #0d9488 0%, #22d3ee 50%, #a78bfa 100%);
+}
+
+/* Service card colors */
+.service-card-green {
+    background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+}
+
+.service-card-teal {
+    background: linear-gradient(180deg, #14b8a6 0%, #0d9488 100%);
+}
+
+.service-card-orange {
+    background: linear-gradient(180deg, #f97316 0%, #ea580c 100%);
+}
+
+/* Icon background colors */
+.icon-bg-teal {
+    background-color: #14b8a6;
+}
+
+.icon-bg-green {
+    background-color: #22c55e;
+}
+
+.icon-bg-orange {
+    background-color: #f97316;
+}
+
+.icon-bg-pink {
+    background-color: #ec4899;
+}
+
+.icon-bg-blue {
+    background-color: #3b82f6;
+}
+
+/* Base animation states - hidden initially */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animations for cards */
+.animate-stagger-1 { transition-delay: 0.1s; }
+.animate-stagger-2 { transition-delay: 0.2s; }
+.animate-stagger-3 { transition-delay: 0.3s; }
+.animate-stagger-4 { transition-delay: 0.4s; }
+.animate-stagger-5 { transition-delay: 0.5s; }
+.animate-stagger-6 { transition-delay: 0.6s; }
+
+/* Fade in from left */
+.animate-from-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-from-left.animate-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade in from right */
+.animate-from-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-from-right.animate-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale up animation */
+.animate-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-scale.animate-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Hero animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4); }
+    50% { box-shadow: 0 0 20px 10px rgba(13, 148, 136, 0); }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+    animation: fadeInScale 0.8s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-delay-1 {
+    animation-delay: 0.15s;
+    opacity: 0;
+}
+
+.animate-delay-2 {
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.animate-delay-3 {
+    animation-delay: 0.45s;
+    opacity: 0;
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Service card hover with glow */
+.service-card-hover {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Button hover with scale */
+.btn-hover-scale {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-hover-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Section title underline with animation */
+.section-title-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60px;
+    height: 4px;
+    background-color: #14b8a6;
+    border-radius: 2px;
+    transition: transform 0.6s ease-out;
+}
+
+.animate-visible .section-title-underline::after,
+.section-title-underline.animate-underline::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Icon float animation on hover */
+.icon-hover-float {
+    transition: transform 0.3s ease;
+}
+
+.icon-hover-float:hover {
+    transform: translateY(-5px);
+}
+
+/* Gradient text */
+.text-gradient {
+    background: linear-gradient(135deg, #0d9488 0%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Focus styles */
+*:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2;
+}
+
+/* Smooth image loading */
+.img-loading {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.img-loaded {
+    opacity: 1;
+}
